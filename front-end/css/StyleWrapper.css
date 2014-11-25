@@ -1,0 +1,21 @@
+/*
+    File        : StyleWrapper.css
+
+    Project     : Classset
+
+    Author      : Gabriel Nicolás González Ferreira
+
+    License     : http://www.gnu.org/licenses/gpl.txt  GNU GPL 3.0
+    
+    IDE         : Sublime Text 2.02
+
+    Descripiton : CSS style wrapper for vendors css
+*/
+
+/*change the parameter @ import url () by the css framework*/
+@import url('../vendors/bootstrap/css/bootstrap.min.css');
+@import url('../vendors/jquery-ui/themes/base/jquery.ui.all.css');
+@import url('../vendors/jquery-validation-engine/css/validationEngine.jquery.css');
+/***********************************a added by me***************************************/
+
+

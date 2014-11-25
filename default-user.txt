@@ -1,0 +1,5 @@
+default user : administrator
+password: qwe123
+
+testuser : test01
+password: 123
