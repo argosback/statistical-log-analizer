@@ -17,7 +17,6 @@ class A_SquidAnalizer implements IAction
 	{
         $datahandler = DatahandlerFactory::create('D_SquidAnalizer');
         $datahandler -> setInData("back-end/application/StatisticalMonitor_Module/database/access.test");
-        // $datahandler -> setInData("back-end/logs/access.log.1");
         $data = $datahandler->getOutData();
         
         $view = ViewFactory::create('V_SquidAnalizer');

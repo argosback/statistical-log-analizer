@@ -28,12 +28,6 @@ class D_UpdateActions implements IDataset
 			array_push($queries, $query2);
 		}		
 
-		// foreach ($actions as $actionKey => $actionValue) 
-		// {
-		// 	$query3 = "DELETE FROM roles_actions WHERE action_name <> '$actionKey'";
-		// 	array_push($queries, $query3);
-		// }
-
         $db = DatabaseFactory::create("AAADatabase")->connect();
 		$db->SQLTransaction($queries);
 	}

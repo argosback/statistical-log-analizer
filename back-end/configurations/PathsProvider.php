@@ -51,7 +51,8 @@ class PathsProvider
         //Database
         return array
                     (
-                        'back-end/application/AAA_Module/database/'
+                        'back-end/application/AAA_Module/database/',
+                        'back-end/application/StatisticalMonitor_Module/database/'
                     );
     } 
 
