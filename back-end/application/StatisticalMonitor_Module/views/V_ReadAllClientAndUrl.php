@@ -32,14 +32,10 @@ class V_ReadAllClientAndUrl implements IView, IDataset
         $tableFactory->data = $this->data['squidData'];
         $tableFactory->dataIds =  array("datetime", "client_ip", "url");
         $tableFactory->openTable();     
-        $tableFactory->openTheader();
         $tableFactory->addTheaderTitle("Datetime");
         $tableFactory->addTheaderTitle("Client IP");
         $tableFactory->addTheaderTitle("URL");
-        $tableFactory->closeTheader();
-        $tableFactory->openTbody();
         $tableFactory->renderTableData();
-        $tableFactory->closeTbody();
         $tableFactory->closeTable();
         $table = $tableFactory->render();
 

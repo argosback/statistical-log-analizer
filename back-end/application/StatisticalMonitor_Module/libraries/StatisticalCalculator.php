@@ -47,31 +47,34 @@ class StatisticalCalculator
 
   public function sortSample()
   {
-    sort($sample);
-    return implode(", ", $sample);
+      sort($sample);
+      return implode(", ", $sample);
   }
 
   //$sample is a array
 	public function calculateMean()
 	{
-    return array_sum($this->sample)/count($this->sample);
+      return array_sum($this->sample)/count($this->sample);
 	}
 
 
   public function calculateMedian()
   {
-    sort($this->sample);   
-    $amount = count($this->sample);
-    $medianPosition = ($amount + 1) / 2;
-    $median = $amount % 2 != 0 ? $this->sample[$medianPosition - 1] : ($this->sample[$medianPosition - 1] + $this->sample[$medianPosition]) / 2;
-    return $median;
+      sort($this->sample);   
+      $amount = count($this->sample);
+      $medianPosition = ($amount + 1) / 2;
+      $median = $amount % 2 != 0 ? 
+                  $this->sample[$medianPosition - 1] : 
+                    ($this->sample[$medianPosition - 1] + 
+                      $this->sample[$medianPosition]) / 2;
+      return $median;
   }
 
   public function calculateMode()
   {
-    $count = array_count_values($this->sample);
-    arsort($count);
-    return key($count);
+      $count = array_count_values($this->sample);
+      arsort($count);
+      return key($count);
   }
 
 }

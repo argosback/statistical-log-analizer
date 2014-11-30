@@ -17,10 +17,6 @@ class Table
 	private $dataIds;
 	private $table = null;
 
-	public function __construct()
-	{
-	}
-
 	/*FOR PROPERTIES*/
 	public function __get($name)
 	{

@@ -38,7 +38,6 @@ class V_ReadAllSquidData implements IView, IDataset
                                         "mime_type"
                                         );
         $tableFactory->openTable();     
-        $tableFactory->openTheader();
         $tableFactory->addTheaderTitle("Datetime");
         $tableFactory->addTheaderTitle("Transaction Time");
         $tableFactory->addTheaderTitle("Client IP");
@@ -46,10 +45,7 @@ class V_ReadAllSquidData implements IView, IDataset
         $tableFactory->addTheaderTitle("Client Data");
         $tableFactory->addTheaderTitle("Request Method");
         $tableFactory->addTheaderTitle("Mime Type");
-        $tableFactory->closeTheader();
-        $tableFactory->openTbody();
         $tableFactory->renderTableData();
-        $tableFactory->closeTbody();
         $tableFactory->closeTable();
         $table = $tableFactory->render();
 
