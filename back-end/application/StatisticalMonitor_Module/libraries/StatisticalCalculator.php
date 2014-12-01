@@ -13,6 +13,7 @@
 
 class StatisticalCalculator
 {	
+  //the sample is a array
   private $sample;
 
   /*FOR PROPERTIES*/
@@ -51,12 +52,10 @@ class StatisticalCalculator
       return implode(", ", $sample);
   }
 
-  //$sample is a array
 	public function calculateMean()
 	{
       return array_sum($this->sample)/count($this->sample);
 	}
-
 
   public function calculateMedian()
   {
