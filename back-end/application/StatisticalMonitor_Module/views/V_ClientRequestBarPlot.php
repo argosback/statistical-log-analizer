@@ -44,11 +44,7 @@ include_once "back-end/vendors/libchart/libchart/classes/libchart.php";
         $dom->setDocumentFromFile(STATISTICAL_MONITOR_HTML)
 
                 ->whereIdIs('login-user')
-                    ->insertNode($session->get('session-user-name'));
-
-        // $graph = '<div style="text-align: center;">
-        // 			<img src="back-end/vendors/jpgraph/vertical_bar_plot_client_ip.php" alt="" border="0">
-        // 			</div>';        
+                    ->insertNode($session->get('session-user-name'));   
 
         $graph = '<div style="text-align: center;">
         			<img src="front-end/images/client_request_vertical_bar_plot.png" alt="" border="0">

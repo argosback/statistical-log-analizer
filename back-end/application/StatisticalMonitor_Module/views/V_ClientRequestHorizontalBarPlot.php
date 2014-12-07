@@ -36,6 +36,7 @@ include_once "back-end/vendors/libchart/libchart/classes/libchart.php";
 
         $chart->setDataSet($dataSet);
 
+        $chart->getPlot()->setGraphPadding(new Padding(5, 30, 20, 140));
         $chart->setTitle("Client Request Frequency Bar Plot");
         $chart->render("front-end/images/client_request_horizontal_bar_plot.png");
         //graph generation
@@ -45,13 +46,7 @@ include_once "back-end/vendors/libchart/libchart/classes/libchart.php";
         $dom->setDocumentFromFile(STATISTICAL_MONITOR_HTML)
 
                 ->whereIdIs('login-user')
-                    ->insertNode($session->get('session-user-name'));
-
-        // $graph = '<div style="text-align: center;">
-        //             <img 
-        //                 src="back-end/vendors/jpgraph/horizontal_bar_plot_client_ip.php" 
-        //                 alt="" border="0">
-        //             </div>';        
+                    ->insertNode($session->get('session-user-name'));     
 
         $graph = '<div style="text-align: center;">
         			<img 
