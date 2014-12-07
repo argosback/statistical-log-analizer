@@ -14,6 +14,8 @@
 interface ISession
 {	
   public function start();
+  public function setTime($time);
+  public function getTime();
   public function set($key, $value);
   public function get($key);
   public function delete($key);

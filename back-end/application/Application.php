@@ -19,6 +19,7 @@ final class Application
 		Autoloader::init();
 		
 		$session = SessionFactory::create();
+		$session -> setTime('86400');//24 hs = 86400 segs
 		$session -> start();
 
 		$requestHandler = RequestHandlerFactory::create();

@@ -18,7 +18,7 @@ class D_ReadAllSquidData implements IDataget
         $paginator = PaginatorFactory::create();
         $beginning = $paginator->beginning;
         $rowsPerPage = $paginator->rowsPerPage;
-        $query = "SELECT * FROM SquidData LIMIT $beginning, $rowsPerPage";
+        $query = "SELECT * FROM SquidData ORDER BY client_ip LIMIT $beginning, $rowsPerPage";
                   
         $db = DatabaseFactory::create("SquidDatabase")->connect();
         return $db->SQLFetchAllArray($query);

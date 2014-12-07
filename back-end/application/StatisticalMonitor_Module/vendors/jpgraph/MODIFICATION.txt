@@ -1,0 +1,22 @@
+Comenté a partir de la línea 109 del archivo gd_image.inc.php por el error explicado a continuación:
+
+    // Should we use anti-aliasing. Note: This really slows down graphics!
+    function SetAntiAliasing($aFlg=true) {
+        $this->use_anti_aliasing = $aFlg;
+        if( function_exists('imageantialias') ) {
+            imageantialias($this->img,$aFlg);
+        }
+        //no quiero que falle
+        //else {
+        //    JpGraphError::RaiseL(25128);//('The function imageantialias() is not available in your PHP installation. Use the GD version that comes with PHP and not the standalone version.')
+        //}
+    }
+    
+Estaba probando la librería JpGraph en un flamante Ubuntu 11.04, pero el problema es que la versión de PHP es la más nueva 5.3.3 y muchas funciones ya fueron depreciadas o por el tipo de instalación no están disponibles, como es el caso de la función imageantialias y pues nos lanza el error 25128
+
+Lo que se debe hacer de forma rápida sin andar compilando el PHP-GD desde las sources, es comentar la linea de gd_image.inc.php
+
+JpGraphError::RaiseL(25128);//(‘The function imageantialias() is not available in your PHP installation. Use the GD version that comes with PHP and not the standalone version.’)
+    
+ 
+Y listo! ya funciona otra vez la librería, sin antialias claro, pero funciona

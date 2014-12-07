@@ -51,7 +51,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php?A_ReadSquidDataPaginated">
+          <a class="navbar-brand" href="index.php?A_ReadAllSquidData">
             SquidData
           </a>
         </div>
@@ -60,15 +60,15 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="active">
-              <a href="index.php?A_ReadSquidDataPaginated">List All SquidData</a>
+              <a href="index.php?A_ReadAllSquidData">List All SquidData</a>
             </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a id="squidData-menu-link" href="index.php?A_ReadSquidDataPaginated">SquidData</a></li>
-                <li><a id="roles-menu-link" href="index.php?A_ReadRolesPaginated">Roles</a></li>
-                <li><a id="roles-assignment-menu-link" href="index.php?A_SelectUserToAssignRoles">Roles Assignment</a></li>
-                <li><a id="action-assignment-menu-link" href="index.php?A_SelectRoleToAssignActions">Actions Assignment</a></li>
+                <li><a id="squidData-menu-link" href="index.php?A_ReadAllSquidData">SquidData</a></li>
+                <li><a id="roles-menu-link" href="index.php?A_ReadClientIpWithFrequency">Client IP With Frequency</a></li>
+                <li><a id="roles-assignment-menu-link" href="index.php?A_ClientRequestBarPlot">Client Request Vertical Bar Plot</a></li>
+                <li><a id="action-assignment-menu-link" href="index.php?A_ClientRequestHorizontalBarPlot">Client Request Horizontal Bar Plot</a></li>
               </ul>
             </li>
           </ul>
@@ -126,7 +126,7 @@
 
             <div class="form-group">
               <input type="submit" class="btn btn-danger btn-small" id="confirm-delete-button" name="A_DeleteUser" value="Delete">
-              <a class="btn btn-success btn-small" id="cancel-delete-button" href="index.php?A_ReadSquidDataPaginated">Cancel</a>
+              <a class="btn btn-success btn-small" id="cancel-delete-button" href="index.php?A_ReadAllSquidData">Cancel</a>
             </div>
 
           </div>  
@@ -154,7 +154,7 @@
 
             <input id="save-button-id" class="btn btn-primary btn-small" type="submit" value="Save">
 
-            <a class="btn btn-danger btn-small" id="cancel-save-button" href="index.php?A_ReadSquidDataPaginated">Cancel</a>
+            <a class="btn btn-danger btn-small" id="cancel-save-button" href="index.php?A_ReadAllSquidData">Cancel</a>
           </div>
         </form>
         <!--CREATE-UPDATE FORM-->
@@ -178,8 +178,6 @@
     <!--BOOTSTRAP JS-->
     <script type="text/javascript" src="front-end/vendors/bootstrap/js/bootstrap.min.js"></script>
     
-    <!--MY SCRIPTS-->
-    <!--<script type="text/javascript" src="front-end/javascript/SquidData/SquidData.js"></script>-->
 
   </body>
 </html>
