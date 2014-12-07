@@ -19,7 +19,7 @@ class HttpSession implements ISession
 
 	private function __construct()
 	{
-		$this->setTime(86400);//24 hs = 86400 segs
+		$this->setTime('86400');//24 hs = 86400 segs
 	}
 
 	//to_prevent cloned:

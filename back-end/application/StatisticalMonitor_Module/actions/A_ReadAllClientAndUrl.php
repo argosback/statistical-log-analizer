@@ -39,12 +39,7 @@ class A_ReadAllClientAndUrl implements IAction
         //VIEW
 
         $view = ViewFactory::create('V_ReadAllClientAndUrl');
-        $view->setInData(                                    
-                            array
-                            (
-                                "squidData" => $data,
-                            )
-                        );
+        $view->setInData($data);
         $view->display();
     }
 }

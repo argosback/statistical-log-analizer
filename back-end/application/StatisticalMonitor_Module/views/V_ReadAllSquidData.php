@@ -30,7 +30,7 @@ class V_ReadAllSquidData implements IView, IDataset
                     ->insertNode($session->get('session-user-name'));
 
         $tableFactory = HtmlElementsFactory::create("table");
-        $tableFactory->data = $this->data['squidData'];
+        $tableFactory->data = $this->data;
         $tableFactory->dataIds =  array(
                                         "datetime", "transaction_time", 
                                         "client_ip", "squid_result_code",

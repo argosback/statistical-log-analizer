@@ -39,12 +39,7 @@ class A_ReadAllSquidData implements IAction
         //VIEW
 
         $view = ViewFactory::create('V_ReadAllSquidData');
-        $view->setInData(                                    
-                            array
-                            (
-                                "squidData" => $data,
-                            )
-                        );
+        $view->setInData($data);
         $view->display();
     }
 }

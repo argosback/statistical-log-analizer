@@ -39,12 +39,7 @@ class A_ReadClientIpWithFrequency implements IAction
         //VIEW
 
         $view = ViewFactory::create('V_ReadClientIpWithFrequency');
-        $view->setInData(                                    
-                            array
-                            (
-                                "squidData" => $data,
-                            )
-                        );
+        $view->setInData($data);
         $view->display();
     }
 }

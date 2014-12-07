@@ -29,7 +29,7 @@ class V_ReadAllClientAndUrl implements IView, IDataset
                     ->insertNode($session->get('session-user-name'));
 
         $tableFactory = HtmlElementsFactory::create("table");
-        $tableFactory->data = $this->data['squidData'];
+        $tableFactory->data = $this->data;
         $tableFactory->dataIds =  array("datetime", "client_ip", "url");
         $tableFactory->openTable();     
         $tableFactory->addTheaderTitle("Datetime");

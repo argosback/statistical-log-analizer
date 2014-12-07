@@ -30,7 +30,7 @@ class V_ReadClientIpWithFrequency implements IView, IDataset
                     ->insertNode($session->get('session-user-name'));
 
         $tableFactory = HtmlElementsFactory::create("table");
-        $tableFactory->data = $this->data['squidData'];
+        $tableFactory->data = $this->data;
         $tableFactory->dataIds =  array("client_ip", "frequency");
         $tableFactory->openTable();     
         $tableFactory->addTheaderTitle("Client IP");
