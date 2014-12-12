@@ -37,7 +37,6 @@ class A_ReadAllClientAndUrl implements IAction
         $paginator->rowsTotalNumber = $rowsTotalNumber;
 
         //VIEW
-
         $view = ViewFactory::create('V_ReadAllClientAndUrl');
         $view->setInData($data);
         $view->display();
