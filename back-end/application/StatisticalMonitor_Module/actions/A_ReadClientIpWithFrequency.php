@@ -2,7 +2,7 @@
 /*
     File        : A_ReadClientIpWithFrequency.php
 
-    Project     : Classset
+    Project     : Statistical Log Analizer
 
     Author      : Gabriel Nicolás González Ferreira
     

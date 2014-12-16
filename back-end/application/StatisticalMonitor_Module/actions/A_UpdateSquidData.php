@@ -2,7 +2,7 @@
 /*
     File        : A_UpdateSquidData.php
 
-    Project     : Classset
+    Project     : Statistical Log Analizer
 
     Author      : Gabriel Nicolás González Ferreira
     
@@ -15,6 +15,7 @@ class A_UpdateSquidData implements IAction
 {
 	public function execute()
 	{
+        
         $datahandler = DatahandlerFactory::create('D_UpdateSquidData');
         $datahandler -> setInData(SQUID_FILE);
 

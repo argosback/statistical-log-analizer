@@ -66,7 +66,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Client Request Statistics<b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a id="roles-menu-link" href="index.php?A_ReadClientIpWithFrequency">Client IP With Frequency</a></li>
-                <li><a id="roles-assignment-menu-link" href="index.php?A_ClientRequestBarPlot">Client Request Vertical Bar Plot</a></li>
+                <li><a id="roles-assignment-menu-link" href="index.php?A_ClientRequestVerticalBarPlot">Client Request Vertical Bar Plot</a></li>
                 <li><a id="action-assignment-menu-link" href="index.php?A_ClientRequestHorizontalBarPlot">Client Request Horizontal Bar Plot</a></li>
               </ul>
             </li>
@@ -77,14 +77,20 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bandwidth Statistics<b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a id="roles-menu-link" href="index.php?A_ReadClientIpWithFrequency">Client IP With Frequency</a></li>
-                <li><a id="roles-assignment-menu-link" href="index.php?A_ClientRequestBarPlot">Client Request Vertical Bar Plot</a></li>
+                <li><a id="roles-assignment-menu-link" href="index.php?A_ClientRequestVerticalBarPlot">Client Request Vertical Bar Plot</a></li>
                 <li><a id="action-assignment-menu-link" href="index.php?A_ClientRequestHorizontalBarPlot">Client Request Horizontal Bar Plot</a></li>
               </ul>
             </li>
           </ul>
 
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="index.php?A_LogFileLoader">Log File Loader</a>
+            </li>
+          </ul>
+
           <!--SEARCH FORM-->
-          <form name="squidDataSearchForm" id="squidDataSearchForm" class="navbar-form navbar-left" role="search" action="index.php" method="post" >
+          <form name="squidDataSearchForm" id="squidDataSearchForm" class="navbar-form navbar-left" role="search" action="index.php" method="post" style="display: none;">
             <div class="form-group">
               <input id="search-target" name="search-target" type="text" class="form-control" placeholder="Type your search" required>
             </div>
@@ -104,11 +110,6 @@
         </div><!-- /.navbar-collapse -->
       </nav>
 
-      <!--RESPONSE MESSAGE-->
-      <h2 id="responseMessage" style="text-align: center;" class='page-header'>
-      </h2>
-      <!--RESPONSE MESSAGE-->
-
       <!--CONTENT-->
       <div id="squidDataContainer">
         
@@ -116,58 +117,20 @@
         
         <!--TABLE-->
 
+        <!--LOG FILE LOADER FORM-->
+        <form enctype="multipart/form-data" name="log-file-loader-form" id="log-file-loader-form" class="container" action="index.php" method="post" style="display: none;">
+            <input type="hidden" name="MAX_FILE_SIZE" value="10000000">
+            <input class="file" type="file" name="files" id="files">
+            <input type="submit" id="load-button" name="A_Test" value="Load">
+        </form>
+        <!--LOG FILE LOADER FORM-->
+
         <!--PAGINATION-->
         <nav id="nav-pagination" style="text-align: center;">
           <ul id="ul-pagination" class="pagination">
           </ul>
         </nav>
         <!--PAGINATION-->
-
-        <!--CONFIRM DELETE FORM-->
-        <form name="delete-form" id="delete-form" class="container" action="index.php" method="post" style="display: none;">
-          <div style="text-align: center;">
-            <div class="form-group">
-              <h3>
-                <label id="confirm-delete-message" name="confirm-delete-message"> 
-
-                </label>
-              </h3>
-            </div>  
-
-            <div class="form-group">
-              <input type="submit" class="btn btn-danger btn-small" id="confirm-delete-button" name="A_DeleteUser" value="Delete">
-              <a class="btn btn-success btn-small" id="cancel-delete-button" href="index.php?A_ReadAllSquidData">Cancel</a>
-            </div>
-
-          </div>  
-        </form>
-        <!--CONFIRM DELETE FORM-->
-      
-        <!--CREATE-UPDATE FORM-->  
-        <form id="create-update-form" name="create-update-form" class="container" action="index.php" method="post" style="display: none;">
-    		  <div class="form-group">
-            <label class="" for="user-name">Name: </label>
-            <input id="user-name-id" class="form-control" name="user-name" type="text" placeholder="Type your name" autofocus="true" required>
-          </div>
-
-          <div class="form-group">
-            <label class="" for="user-password">Password: </label>
-            <input id="user-password-id" class="form-control" name="user-password" type="password" placeholder="Type your password" required>
-          </div> 
-
-          <div class="form-group">
-            <label class="" for="confirm-password">Password Confirmation: </label>
-            <input id="password-confirmation" name="password-confirmation" class="form-control"  type="password" placeholder="Confirm your password" required>
-          </div> 
-
-          <div class="form-group" style="text-align: center;">
-
-            <input id="save-button-id" class="btn btn-primary btn-small" type="submit" value="Save">
-
-            <a class="btn btn-danger btn-small" id="cancel-save-button" href="index.php?A_ReadAllSquidData">Cancel</a>
-          </div>
-        </form>
-        <!--CREATE-UPDATE FORM-->
 
       </div>
 

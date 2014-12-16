@@ -1,6 +1,6 @@
 <?php
 /*
-    File        : A_ClientRequestHorizontalBarPlot.php
+    File        : A_ClientRequestVerticalBarPlot.php
 
     Project     : Statistical Log Analizer
 
@@ -11,7 +11,7 @@
     IDE         : Sublime Text 2.02
 */
 
-class A_ClientRequestHorizontalBarPlot implements IAction
+class A_ClientRequestVerticalBarPlot implements IAction
 {
 	public function execute()
 	{
@@ -20,7 +20,7 @@ class A_ClientRequestHorizontalBarPlot implements IAction
 		$data = $datahandler->getOutData();
 
 		//VIEW
-        $view = ViewFactory::create('V_ClientRequestHorizontalBarPlot');
+        $view = ViewFactory::create('V_ClientRequestVerticalBarPlot');
         $view->setInData($data);
         $view->display();
 	}

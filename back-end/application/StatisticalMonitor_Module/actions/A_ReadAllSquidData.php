@@ -2,7 +2,7 @@
 /*
     File        : A_ReadAllSquidData.php
 
-    Project     : Classset
+    Project     : Statistical Log Analizer
 
     Author      : Gabriel Nicolás González Ferreira
     
@@ -23,7 +23,7 @@ class A_ReadAllSquidData implements IAction
         //PAGINATOR
         $paginator = PaginatorFactory::create();
         $paginator->pageNumber = $pageNumber;
-        $paginator->rowsPerPage = 5;
+        $paginator->rowsPerPage = 10;
 
         //DATAHANDLERS
         $datahandler = DatahandlerFactory::create('D_ReadAllSquidData');

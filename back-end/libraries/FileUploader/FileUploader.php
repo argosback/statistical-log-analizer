@@ -72,6 +72,7 @@ class FileUploader
 
 	public function fileUpload()
 	{
+		// echo $this->_namePostVariable;
 	    if ($_FILES[$this -> _namePostVariable]["size"][0] == 0)
 	    {
 	      return NULL;

@@ -2,7 +2,7 @@
 /*
     File        : A_ReadAllClientAndUrl.php
 
-    Project     : Classset
+    Project     : Statistical Log Analizer
 
     Author      : Gabriel Nicolás González Ferreira
     
