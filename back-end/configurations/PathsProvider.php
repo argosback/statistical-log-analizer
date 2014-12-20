@@ -52,7 +52,7 @@ class PathsProvider
         return array
                     (
                         'back-end/application/AAA_Module/database/',
-                        'back-end/application/StatisticalMonitor_Module/database/'
+                        'back-end/application/StatisticalLogAnalizer_Module/database/'
                     );
     } 
 
@@ -117,7 +117,7 @@ class PathsProvider
 		return array
 					(
                         'back-end/application/AAA_Module/actions/',
-						'back-end/application/StatisticalMonitor_Module/actions/'
+						'back-end/application/StatisticalLogAnalizer_Module/actions/'
 
 					);
     }
@@ -128,7 +128,7 @@ class PathsProvider
 		return array
 					(
                         'back-end/application/AAA_Module/datahandlers/',
-						'back-end/application/StatisticalMonitor_Module/datahandlers/'
+						'back-end/application/StatisticalLogAnalizer_Module/datahandlers/'
 					);
     }
 
@@ -139,7 +139,7 @@ class PathsProvider
 		return array
 					(
                         'back-end/application/AAA_Module/views/',
-						'back-end/application/StatisticalMonitor_Module/views/'
+						'back-end/application/StatisticalLogAnalizer_Module/views/'
 					);
     }
 

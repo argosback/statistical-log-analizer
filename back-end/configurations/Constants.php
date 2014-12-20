@@ -18,7 +18,5 @@
     define('ROLES_HTML', 'front-end/html/roles/roles.html');
     define('ROLES_ASSIGNMENT_HTML', 'front-end/html/roles-assignment/roles-assignment.html');
     define('ACTIONS_ASSIGNMENT_HTML', 'front-end/html/actions-assignment/actions-assignment.html');
-    define('STATISTICAL_MONITOR_HTML', 'front-end/html/statistical-monitor/statistical-monitor.html');
-    define('SQUID_FILE', 'back-end/application/StatisticalMonitor_Module/database/access.test');
-
+    define('STATISTICAL_LOG_ANALIZER_HTML', 'front-end/html/statistical-log-analizer/statistical-log-analizer.html');
 ?>

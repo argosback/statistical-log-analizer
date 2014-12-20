@@ -1,3 +1,0 @@
-Debo validar las condiciones para subir un archivo de log y administrar el tamaño
-
-Debo hacer un buscador genérico
