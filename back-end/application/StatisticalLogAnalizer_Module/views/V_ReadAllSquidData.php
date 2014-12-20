@@ -32,13 +32,14 @@ class V_ReadAllSquidData implements IView, IDataset
         $tableFactory = HtmlElementsFactory::create("table");
         $tableFactory->data = $this->data;
         $tableFactory->dataIds =  array(
-                                        "datetime", "transaction_time", 
+                                        "date", "time", "transaction_time", 
                                         "client_ip", "squid_result_code",
                                         "client_data", "request_method",
                                         "mime_type"
                                         );
         $tableFactory->openTable();     
-        $tableFactory->addTheaderTitle("Datetime");
+        $tableFactory->addTheaderTitle("Date");
+        $tableFactory->addTheaderTitle("Time");
         $tableFactory->addTheaderTitle("Transaction Time");
         $tableFactory->addTheaderTitle("Client IP");
         $tableFactory->addTheaderTitle("Squid Code");

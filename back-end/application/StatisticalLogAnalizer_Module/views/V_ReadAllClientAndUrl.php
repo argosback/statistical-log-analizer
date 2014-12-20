@@ -30,9 +30,10 @@ class V_ReadAllClientAndUrl implements IView, IDataset
 
         $tableFactory = HtmlElementsFactory::create("table");
         $tableFactory->data = $this->data;
-        $tableFactory->dataIds =  array("datetime", "client_ip", "url");
+        $tableFactory->dataIds =  array("date", "time", "client_ip", "url");
         $tableFactory->openTable();     
-        $tableFactory->addTheaderTitle("Datetime");
+        $tableFactory->addTheaderTitle("Date");
+        $tableFactory->addTheaderTitle("Time");
         $tableFactory->addTheaderTitle("Client IP");
         $tableFactory->addTheaderTitle("URL");
         $tableFactory->renderTableData();

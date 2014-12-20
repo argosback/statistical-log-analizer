@@ -63,13 +63,29 @@
               <a href="index.php?A_ReadAllSquidData">List All SquidData</a>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Client Request Statistics<b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Client Request Frequency<b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a id="roles-menu-link" href="index.php?A_ReadClientIpWithFrequency">Requests By Client IP</a></li>
+                <li><a id="roles-menu-link" href="index.php?A_ReadClientIpWithFrequency">Requests Frequency By Client IP</a></li>
                 <li><a id="roles-assignment-menu-link" href="index.php?A_ClientRequestVerticalBarPlot">Vertical Bar Plot</a></li>
                 <li><a id="action-assignment-menu-link" href="index.php?A_ClientRequestHorizontalBarPlot">Horizontal Bar Plot</a></li>
+                <li><a id="action-assignment-menu-link" href="index.php?A_ClientRequestFrequencyLinePlot">Line Plot</a></li>         
               </ul>
             </li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Request domains by client IP and by day<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a id="action-assignment-menu-link" href="index.php?A_RequestDomainsLinePlot">Line Plot</a></li>         
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Client Data Consumption<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a id="action-assignment-menu-link" href="index.php?A_ClientDataLinePlot">Line Plot</a></li>         
+              </ul>
+            </li>
+
           </ul>
 
 <!--           <ul class="nav navbar-nav">

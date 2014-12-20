@@ -29,7 +29,7 @@ class A_LoadLogFile implements IAction
 
         //REDIRECTOR
         $redirector = RedirectorFactory::create();
-        $redirector->redirectTo('index.php?A_ReadAllSquidData');
+        $redirector->redirectTo('index.php?A_ReadClientIpWithFrequency');
 
         // $fileUploader = FileUploader::getInstance();
         // // $fileUploader->setNamePostVariable($namePostVariable);

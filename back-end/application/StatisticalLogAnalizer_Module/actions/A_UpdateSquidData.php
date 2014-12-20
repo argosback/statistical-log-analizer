@@ -21,7 +21,7 @@ class A_UpdateSquidData implements IAction
 
         //REDIRECTOR
         $redirector = RedirectorFactory::create();
-        $redirector->redirectTo('index.php?A_ReadAllSquidData');
+        $redirector->redirectTo('index.php?A_ReadClientIpWithFrequency');
     }
 }
 ?>

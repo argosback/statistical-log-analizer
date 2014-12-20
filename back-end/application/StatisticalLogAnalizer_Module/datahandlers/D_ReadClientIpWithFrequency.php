@@ -18,7 +18,7 @@ class D_ReadClientIpWithFrequency implements IDataget
         $paginator = PaginatorFactory::create();
         $beginning = $paginator->beginning;
         $rowsPerPage = $paginator->rowsPerPage;
-        $query = "SELECT client_ip, COUNT(client_ip) as frequency FROM SquidData 
+        $query = "SELECT client_ip, url, COUNT(client_ip) as frequency FROM SquidData 
         			GROUP BY client_ip 
         				ORDER BY frequency DESC 
         					LIMIT $beginning, $rowsPerPage";

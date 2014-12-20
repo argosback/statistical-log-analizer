@@ -63,7 +63,7 @@ class A_Main implements IAction
 		/*Si está autenticado y autorizado y quiere ejecutar login lo 
 		redirijo a default a default action:*/
 		$validator->ifTrue( $selectedActionKey == "A_Authenticate" )
-					->redirectTo('index.php?A_ReadAllSquidData');
+					->redirectTo('index.php?A_ReadClientIpWithFrequency');
 
 		//Si está autenticado y autorizado y ejecuta una acción no existente
 		$validator->ifFalse( array_key_exists($selectedActionKey, $actions) )

@@ -56,7 +56,8 @@ class D_UpdateSquidData implements IDataset
         $filter = FilterFactory::create();
         foreach ($this->data as $key => $datum) 
         {
-        	$datetime = date('d-m-Y H:m', $filter->filters($datum[0]));
+            $date = date('d-m-Y', $filter->filters($datum[0]));
+        	$time = date('H:i:s', $filter->filters($datum[0]));
         	$transaction_time = $datum[1];
         	$client_ip = $filter->filters($datum[2]);
         	$squid_result_code = $filter->filters($datum[3]); 
@@ -64,21 +65,19 @@ class D_UpdateSquidData implements IDataset
         	$request_method = $filter->filters($datum[5]);
         	$url = $filter->filters($datum[6]);
         	$mime_type = $filter->filters($datum[9]);
-            $explodedUrl = explode("/", $datum[6]);
-            @$domain = $filter->filters($explodedUrl[2]);
 
         	$query2 = "INSERT INTO SquidData
         					   (
-        							datetime, transaction_time, 
+        							date, time, transaction_time, 
         							client_ip, squid_result_code,
         							client_data, request_method,
-        							url, mime_type, domain
+        							url, mime_type
         					   ) 
 						VALUES (
-									'$datetime', $transaction_time,
+									'$date', '$time', $transaction_time,
 									'$client_ip', '$squid_result_code',
 									$client_data, '$request_method',
-									'$url', '$mime_type', '$domain'
+									'$url', '$mime_type'
 							   )";
             array_push($queries, $query2);        	
         }

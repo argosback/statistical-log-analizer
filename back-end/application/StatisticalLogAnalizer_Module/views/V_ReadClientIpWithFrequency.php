@@ -31,9 +31,10 @@ class V_ReadClientIpWithFrequency implements IView, IDataset
 
         $tableFactory = HtmlElementsFactory::create("table");
         $tableFactory->data = $this->data;
-        $tableFactory->dataIds =  array("client_ip", "frequency");
+        $tableFactory->dataIds =  array("client_ip", "url", "frequency");
         $tableFactory->openTable();     
         $tableFactory->addTheaderTitle("Client IP");
+        $tableFactory->addTheaderTitle("URL");
         $tableFactory->addTheaderTitle("Frequency");
         $tableFactory->renderTableData();
         $tableFactory->closeTable();

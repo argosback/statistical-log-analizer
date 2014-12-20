@@ -24,7 +24,7 @@ include_once "back-end/vendors/libchart/libchart/classes/libchart.php";
  
      public function display()
      {
-		$chart = new VerticalBarChart(900,350);
+		$chart = new VerticalBarChart(4500,350);
 
 		$dataSet = new XYDataSet();
 

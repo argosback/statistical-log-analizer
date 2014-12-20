@@ -25,7 +25,7 @@ include_once "back-end/vendors/libchart/libchart/classes/libchart.php";
      public function display()
      {
         //graph generation
-        $chart = new HorizontalBarChart(800,350);
+        $chart = new HorizontalBarChart(800,4500);
 
         $dataSet = new XYDataSet();
 
