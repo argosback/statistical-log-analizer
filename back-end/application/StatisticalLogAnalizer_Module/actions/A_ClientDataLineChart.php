@@ -1,6 +1,6 @@
 <?php
 /*
-    File        : A_ClientRequestHorizontalBarPlot.php
+    File        : A_ClientDataLineChart.php
 
     Project     : Statistical Log Analizer
 
@@ -11,34 +11,37 @@
     IDE         : Sublime Text 2.02
 */
 
-class A_ClientRequestHorizontalBarPlot implements IAction
+class A_ClientDataLineChart implements IAction
 {
 	public function execute()
 	{
         //SESSION
         $session = SessionFactory::create();
+        $clientIp = $session->get("selected-client-ip");
         $date = $session->get("selected-date");
 
         //VALIDATION
         $validator = ValidatorFactory::create();
-        $validator->ifTrue( ($date == null) )->respond(INCOMPLETE_FILTER_DATA);
+        $validator->ifTrue( ($clientIp == null or $date == null) )
+                        ->respond(INCOMPLETE_FILTER_DATA);
 
         //SESSION DATA
         $sessionData = array
                         (
+                           'client-ip' => $clientIp,
                            'date' => $date
                         );
 
 		//DATAHANDLER
-		$datahandler = DatahandlerFactory::create('D_ClientRequestHorizontalBarPlot');
+		$datahandler = DatahandlerFactory::create('D_ClientDataLineChart');
         $datahandler->setInData($sessionData);
-        $data = $datahandler->getOutData();
+		$data = $datahandler->getOutData();
         //VALIDATION
         $validator->ifTrue( ($data == array()) )
-                                ->respond('No activity for the day: '.$date);
+                                ->respond('Client: '.$clientIp.' no activity in the day: '.$date);
 
 		//VIEW
-        $view = ViewFactory::create('V_ClientRequestHorizontalBarPlot');
+        $view = ViewFactory::create('V_ClientDataLineChart');
         $view->setInData($data);
         $view->display();
 	}

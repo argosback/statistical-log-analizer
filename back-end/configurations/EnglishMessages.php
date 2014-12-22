@@ -36,6 +36,7 @@
 	define('NO_AUTHORIZED_ACTION', 'Action not authorized :(');
     define('GO_BACK', 'GO Back!');
     define('USED_ROLE', 'You can not delete, there are users using this role.');
+    define('INCOMPLETE_FILTER_DATA', 'Incomplete Filter Data.');
     
 //FOR REQUEST DISPATCHER
     define('I_DONT_UNDERSTAND', "I don't understand the following message: ");

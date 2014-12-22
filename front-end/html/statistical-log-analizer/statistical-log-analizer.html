@@ -59,45 +59,37 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active">
+<!--             <li class="active">
               <a href="index.php?A_ReadAllSquidData">List All SquidData</a>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Client Request Frequency<b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a id="roles-menu-link" href="index.php?A_ReadClientIpWithFrequency">Requests Frequency By Client IP</a></li>
-                <li><a id="roles-assignment-menu-link" href="index.php?A_ClientRequestVerticalBarPlot">Vertical Bar Plot</a></li>
-                <li><a id="action-assignment-menu-link" href="index.php?A_ClientRequestHorizontalBarPlot">Horizontal Bar Plot</a></li>
-                <li><a id="action-assignment-menu-link" href="index.php?A_ClientRequestFrequencyLinePlot">Line Plot</a></li>         
-              </ul>
-            </li>
+            </li> -->
+            <li><a href="index.php?A_EnterFilterDataForm">Enter Filter Data</a></li> 
 
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Request domains by client IP and by day<b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Request Frequency By Domains<b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a id="action-assignment-menu-link" href="index.php?A_RequestDomainsLinePlot">Line Plot</a></li>         
+                <li><a href="index.php?A_DomainsRequestTable">Domains Request Frequency Table</a></li>                 
+                <li><a href="index.php?A_DomainsRequestLineChart">Line Chart</a></li>         
               </ul>
             </li>
 
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Client Data Consumption<b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a id="action-assignment-menu-link" href="index.php?A_ClientDataLinePlot">Line Plot</a></li>         
+                <li><a href="index.php?A_ClientDataConsumptionTable">Client Data Consumption Table</a></li> 
+                <li><a href="index.php?A_ClientDataLineChart">Line Chart</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Frequency of Requests from all clients<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a id="roles-menu-link" href="index.php?A_FrequencyTableOfClientRequests">Frequency Table of client requests</a></li>
+                <li><a id="roles-assignment-menu-link" href="index.php?A_ClientRequestVerticalBarPlot">Vertical Bar Chart</a></li>
+                <li><a href="index.php?A_ClientRequestHorizontalBarPlot">Horizontal Bar Chart</a></li>
               </ul>
             </li>
 
           </ul>
-
-<!--           <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bandwidth Statistics<b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a id="roles-menu-link" href="index.php?A_ReadClientIpWithFrequency">Client IP With Frequency</a></li>
-                <li><a id="roles-assignment-menu-link" href="index.php?A_ClientRequestVerticalBarPlot">Client Request Vertical Bar Plot</a></li>
-                <li><a id="action-assignment-menu-link" href="index.php?A_ClientRequestHorizontalBarPlot">Client Request Horizontal Bar Plot</a></li>
-              </ul>
-            </li>
-          </ul> -->
 
           <!--LOG FILE LOADER-->
 <!--           <ul class="nav navbar-nav">
@@ -126,6 +118,10 @@
         
         </div><!-- /.navbar-collapse -->
       </nav>
+      
+      <!--BODY TITLE-->
+      <div id="body-title" style="text-align: center;"></div>
+      <!--BODY TITLE-->
 
       <!--CONTENT-->
       <div id="squidDataContainer">
@@ -140,7 +136,32 @@
             <input class="file" type="file" name="files" id="files">
             <input type="submit" id="load-button" name="A_LoadLogFile" value="Load">
         </form>
-        <!--LOG FILE LOADER FORM-->
+        <!--LOG FILE LOADER FORM-->        
+
+        <!--ENTER FILTER DATA FORM-->
+        <form id="filter-data-form" name="filter-data-form" class="container" action="index.php" method="post" style="display: none;">
+          <!--ACÁ VA UN SELECT DE IPS y CAMPO DE FECHA Y HORA OCULTO-->
+          <div class="form-group">
+            <label name="label"> 
+              Client IP: 
+            </label>
+            <select id="client-ip-select-input" name="selected-client-ip" class="form-control">
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label name="label"> 
+              Date: 
+            </label>
+            <select id="date-select-input" name="selected-date" class="form-control">
+            </select>  
+          </div>
+
+          <div class="form-group" style="text-align: center;">
+            <input type="submit" id="load-button" name="A_EnterFilterData" value="Load" class="btn btn-primary btn-small">
+          </div>  
+        </form>
+        <!--ENTER FILTER DATA FORM-->
 
         <!--PAGINATION-->
         <nav id="nav-pagination" style="text-align: center;">

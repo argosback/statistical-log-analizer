@@ -1,6 +1,6 @@
 <?php
 /*
-    File        : D_ClientDataLinePlot.php
+    File        : D_ReadDates.php
 
     Project     : Classset
 
@@ -11,14 +11,13 @@
     IDE         : Sublime Text 2.02
 */
 
-class D_ClientDataLinePlot implements IDataget
+class D_ReadDates implements IDataget
 {
     public function getOutData()
     {
-        $query = "SELECT client_data, time
-                    FROM SquidData 
-                    WHERE client_ip = '10.2.210.10' AND date = '15-09-2014'
-                    ORDER BY time";        
+        $query = "SELECT date FROM SquidData 
+        			GROUP BY date 
+        				ORDER BY date";
                   
         $db = DatabaseFactory::create("SquidDatabase")->connect();
         return $db->SQLFetchAllArray($query);

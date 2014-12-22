@@ -1,6 +1,6 @@
 <?php
 /*
-    File        : V_ReadClientIpWithFrequency.php
+    File        : V_DomainsRequestTable.php
 
     Project     : Classset
 
@@ -11,7 +11,7 @@
     IDE         : Sublime Text 2.02
 */
 
-class V_ReadClientIpWithFrequency implements IView, IDataset
+class V_DomainsRequestTable implements IView, IDataset
 {
     private $data;
 
@@ -29,12 +29,23 @@ class V_ReadClientIpWithFrequency implements IView, IDataset
                 ->whereIdIs('login-user')
                     ->insertNode($session->get('session-user-name'));
 
+        //TITLE
+        $selectedClientIp = $session->get("selected-client-ip");
+        $selectedDate = $session->get("selected-date");
+        $beginTime = $this->data[0]['time'];
+        $endTime = end($this->data)['time'];
+        $title = "<h3>Client (".$selectedClientIp.") Domains Request Frequency Table, 
+                            at: ".$selectedDate." between: ".$beginTime." and ".$endTime."</h3><br><h5>(Ordered from highest to lowest frequency)</h5>";
+        $dom->whereIdIs("body-title")->insertNode($title); 
+        //TITLE
+
         $tableFactory = HtmlElementsFactory::create("table");
         $tableFactory->data = $this->data;
-        $tableFactory->dataIds =  array("client_ip", "frequency");
+        $tableFactory->dataIds =  array("time", "frequency", "url");
         $tableFactory->openTable();     
-        $tableFactory->addTheaderTitle("Client IP");
+        $tableFactory->addTheaderTitle("Time");
         $tableFactory->addTheaderTitle("Frequency");
+        $tableFactory->addTheaderTitle("URL");
         $tableFactory->renderTableData();
         $tableFactory->closeTable();
         $table = $tableFactory->render();
@@ -42,7 +53,7 @@ class V_ReadClientIpWithFrequency implements IView, IDataset
         $dom->whereIdIs("squidDataContainer")->insertNode($table); 
 
         $paginator = PaginatorFactory::create();
-        $paginator->action = "A_ReadClientIpWithFrequency";
+        $paginator->action = "A_DomainsRequestTable";
         $dom->whereIdIs('ul-pagination')
             ->insertNode($paginator->paginationSelect);
         

@@ -15,10 +15,27 @@ class A_ClientRequestVerticalBarPlot implements IAction
 {
 	public function execute()
 	{
-		//DATAHANDLER
-		$datahandler = DatahandlerFactory::create('D_ClientRequestBarPlot');
-		$data = $datahandler->getOutData();
+        //SESSION
+        $session = SessionFactory::create();
+        $date = $session->get("selected-date");
 
+        //VALIDATION
+        $validator = ValidatorFactory::create();
+        $validator->ifTrue( ($date == null) )->respond(INCOMPLETE_FILTER_DATA);
+
+        //SESSION DATA
+        $sessionData = array
+                        (
+                           'date' => $date
+                        );
+
+		//DATAHANDLER
+		$datahandler = DatahandlerFactory::create('D_ClientRequestVerticalBarPlot');
+		$datahandler->setInData($sessionData);
+        $data = $datahandler->getOutData();
+        //VALIDATION
+        $validator->ifTrue( ($data == array()) )
+                                ->respond('No activity for the day: '.$date);
 		//VIEW
         $view = ViewFactory::create('V_ClientRequestVerticalBarPlot');
         $view->setInData($data);

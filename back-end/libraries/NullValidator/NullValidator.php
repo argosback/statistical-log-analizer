@@ -30,7 +30,7 @@ class NullValidator implements IValidator
 
 	public function respond($response)
 	{
-
+		
 	}
 
 	public function execute(IAction $action = null)

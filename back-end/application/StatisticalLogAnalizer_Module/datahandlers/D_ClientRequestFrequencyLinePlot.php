@@ -17,7 +17,7 @@ class D_ClientRequestFrequencyLinePlot implements IDataget
     {
         $query = "SELECT client_ip, COUNT(client_ip) as frequency FROM SquidData 
         			GROUP BY client_ip 
-        				ORDER BY date";
+        				ORDER BY frequency DESC";
                   
         $db = DatabaseFactory::create("SquidDatabase")->connect();
         return $db->SQLFetchAllArray($query);

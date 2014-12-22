@@ -1,6 +1,6 @@
 <?php
 /*
-    File        : V_ReadClientIpWithFrequency.php
+    File        : V_FrequencyTableOfClientRequests.php
 
     Project     : Classset
 
@@ -11,7 +11,7 @@
     IDE         : Sublime Text 2.02
 */
 
-class V_ReadClientIpWithFrequency implements IView, IDataset
+class V_FrequencyTableOfClientRequests implements IView, IDataset
 {
     private $data;
 
@@ -29,6 +29,10 @@ class V_ReadClientIpWithFrequency implements IView, IDataset
                 ->whereIdIs('login-user')
                     ->insertNode($session->get('session-user-name'));
 
+        $selectedDate = $session->get("selected-date");
+        $title = "<h3>Frequency Table of client requests for the day: ".$selectedDate." </h3>";
+        $dom->whereIdIs("body-title")->insertNode($title); 
+
         $tableFactory = HtmlElementsFactory::create("table");
         $tableFactory->data = $this->data;
         $tableFactory->dataIds =  array("client_ip", "frequency");
@@ -42,7 +46,7 @@ class V_ReadClientIpWithFrequency implements IView, IDataset
         $dom->whereIdIs("squidDataContainer")->insertNode($table); 
 
         $paginator = PaginatorFactory::create();
-        $paginator->action = "A_ReadClientIpWithFrequency";
+        $paginator->action = "A_FrequencyTableOfClientRequests";
         $dom->whereIdIs('ul-pagination')
             ->insertNode($paginator->paginationSelect);
         

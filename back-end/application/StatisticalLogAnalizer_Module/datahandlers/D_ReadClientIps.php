@@ -1,6 +1,6 @@
 <?php
 /*
-    File        : D_ClientRequestBarPlot.php
+    File        : D_ReadClientIps.php
 
     Project     : Classset
 
@@ -11,13 +11,13 @@
     IDE         : Sublime Text 2.02
 */
 
-class D_ClientRequestBarPlot implements IDataget
+class D_ReadClientIps implements IDataget
 {
     public function getOutData()
     {
-        $query = "SELECT client_ip, COUNT(client_ip) as frequency FROM SquidData 
+        $query = "SELECT client_ip FROM SquidData 
         			GROUP BY client_ip 
-        				ORDER BY date";
+        				ORDER BY client_ip";
                   
         $db = DatabaseFactory::create("SquidDatabase")->connect();
         return $db->SQLFetchAllArray($query);
