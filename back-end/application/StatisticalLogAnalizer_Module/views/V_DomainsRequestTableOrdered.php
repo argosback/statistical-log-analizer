@@ -1,6 +1,6 @@
 <?php
 /*
-    File        : V_DomainsRequestTable.php
+    File        : V_DomainsRequestTableOrdered.php
 
     Project     : Classset
 
@@ -11,7 +11,7 @@
     IDE         : Sublime Text 2.02
 */
 
-class V_DomainsRequestTable implements IView, IDataset
+class V_DomainsRequestTableOrdered implements IView, IDataset
 {
     private $data;
 
@@ -35,8 +35,7 @@ class V_DomainsRequestTable implements IView, IDataset
         $beginTime = $this->data[0]['time'];
         $endTime = end($this->data)['time'];
         $title = "<h3>Client (".$selectedClientIp.") Domains Request Frequency Table, 
-                            at: ".$selectedDate." between: ".$beginTime." and ".$endTime."</h3>
-                            <br><a href='index.php?A_DomainsRequestTableOrdered'>Order from highest to lowest frequency</a>";
+                            at: ".$selectedDate."</h3><br><h5>(Ordered from highest to lowest frequency)</h5>";
         $dom->whereIdIs("body-title")->insertNode($title); 
         //TITLE
 
@@ -54,7 +53,7 @@ class V_DomainsRequestTable implements IView, IDataset
         $dom->whereIdIs("squidDataContainer")->insertNode($table); 
 
         $paginator = PaginatorFactory::create();
-        $paginator->action = "A_DomainsRequestTable";
+        $paginator->action = "A_DomainsRequestTableOrdered";
         $dom->whereIdIs('ul-pagination')
             ->insertNode($paginator->paginationSelect);
         

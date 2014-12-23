@@ -1,6 +1,6 @@
 <?php
 /*
-    File        : V_DomainsRequestTable.php
+    File        : V_ClientDataConsumptionTableOrdered.php
 
     Project     : Classset
 
@@ -11,7 +11,7 @@
     IDE         : Sublime Text 2.02
 */
 
-class V_DomainsRequestTable implements IView, IDataset
+class V_ClientDataConsumptionTableOrdered implements IView, IDataset
 {
     private $data;
 
@@ -34,18 +34,17 @@ class V_DomainsRequestTable implements IView, IDataset
         $selectedDate = $session->get("selected-date");
         $beginTime = $this->data[0]['time'];
         $endTime = end($this->data)['time'];
-        $title = "<h3>Client (".$selectedClientIp.") Domains Request Frequency Table, 
-                            at: ".$selectedDate." between: ".$beginTime." and ".$endTime."</h3>
-                            <br><a href='index.php?A_DomainsRequestTableOrdered'>Order from highest to lowest frequency</a>";
+        $title = "<h3>Client (".$selectedClientIp.") Data Consumption Table, 
+                            at: ".$selectedDate."</h3><br><h5>(Ordered from highest to lowest consumption)</h5>";
         $dom->whereIdIs("body-title")->insertNode($title); 
         //TITLE
 
         $tableFactory = HtmlElementsFactory::create("table");
         $tableFactory->data = $this->data;
-        $tableFactory->dataIds =  array("time", "frequency", "url");
+        $tableFactory->dataIds =  array("time", "client_data", "url");
         $tableFactory->openTable();     
         $tableFactory->addTheaderTitle("Time");
-        $tableFactory->addTheaderTitle("Frequency");
+        $tableFactory->addTheaderTitle("Client Data Consumption In Kb");
         $tableFactory->addTheaderTitle("URL");
         $tableFactory->renderTableData();
         $tableFactory->closeTable();
@@ -54,7 +53,7 @@ class V_DomainsRequestTable implements IView, IDataset
         $dom->whereIdIs("squidDataContainer")->insertNode($table); 
 
         $paginator = PaginatorFactory::create();
-        $paginator->action = "A_DomainsRequestTable";
+        $paginator->action = "A_ClientDataConsumptionTableOrdered";
         $dom->whereIdIs('ul-pagination')
             ->insertNode($paginator->paginationSelect);
         

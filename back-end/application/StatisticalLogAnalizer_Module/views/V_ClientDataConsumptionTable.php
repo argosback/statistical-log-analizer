@@ -35,7 +35,8 @@ class V_ClientDataConsumptionTable implements IView, IDataset
         $beginTime = $this->data[0]['time'];
         $endTime = end($this->data)['time'];
         $title = "<h3>Client (".$selectedClientIp.") Data Consumption Table, 
-                            at: ".$selectedDate." between: ".$beginTime." and ".$endTime."</h3><br><h5>(Ordered from highest to lowest consumption)</h5>";
+                            at: ".$selectedDate." between: ".$beginTime." and ".$endTime."</h3>
+                            <br><a href='index.php?A_ClientDataConsumptionTableOrdered'>Order from highest to lowest consumption</a>";
         $dom->whereIdIs("body-title")->insertNode($title); 
         //TITLE
 
